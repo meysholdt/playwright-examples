@@ -1,0 +1,15 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: Playwright 
+    init: |
+      npm install
+      npx playwright install
+    command: |
+      npx playwright test --ui-port=8080 --ui-host=0.0.0.0
+
+ports:
+  - port: 8080
+    visibility: private
+    onOpen: open-browser
